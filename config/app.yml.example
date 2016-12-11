@@ -4,5 +4,5 @@ development:
   FOOD_APP_SECRET: '<secret here>'
 
 test:
-FOOD_APP_ID: '<secret here>'
-FOOD_APP_SECRET: '<secret here>'
+  FOOD_APP_ID: '<secret here>'
+  FOOD_APP_SECRET: '<secret here>'
