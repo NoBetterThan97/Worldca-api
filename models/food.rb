@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Represents a Group's stored information
+# Represents a Food's stored information
 class Food < Sequel::Model
-  one_to_one :popularity
+  one_to_one :popularities
 end
