@@ -3,7 +3,7 @@ require 'sequel'
 
 Sequel.migration do
   change do
-    create_table(:foods) do
+    create_table(:popularity) do
       primary_key :id
       foreign_key :food_id
       String :food_name
