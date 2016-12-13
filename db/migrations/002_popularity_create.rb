@@ -6,7 +6,7 @@ Sequel.migration do
     create_table(:popularities) do
       primary_key :id
       foreign_key :food_id
-      String :tag_amount
+      Integer :tag_amount
     end
   end
 end
