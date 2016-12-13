@@ -7,5 +7,5 @@ class FindRankFoodQuery
       Popularity.order(:tag_amount).limit(RankCriteria.count).all
     else
       Popularity.reverse_order(:tag_amount).limit(RankCriteria.count).all
-  end
+  endr
 end
