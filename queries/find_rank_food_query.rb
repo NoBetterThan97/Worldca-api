@@ -4,9 +4,9 @@
 class FindRankFoodQuery
   def self.call(criteria)
     if criteria[:degree]
-      Popularity.order(:tag_amount).limit(criteria[:count]).all
-    else
       Popularity.reverse_order(:tag_amount).limit(criteria[:count]).all
+    else
+      Popularity.order(:tag_amount).limit(criteria[:count]).all
     end
   end
 end
