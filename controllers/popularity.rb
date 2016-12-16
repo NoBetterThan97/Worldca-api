@@ -2,23 +2,24 @@
 
 # Posting routes
 class WorldCaAPI < Sinatra::Base
+
   get "/#{API_VER}/food/rank/low/:count"do
-    criteria = RankCriteria.new(false,params)
-    results = GetLessPopular.call(criteria)
+    criteria = RankCriteria.new(false,params[:count])
+    results = GetPopular.call(criteria)
 
     if results.success?
-      Food_RankRepresenter.new(results.value).to_json
+      Food_RanksRepresenter.call(results.value)
     else
       ErrorRepresenter.new(results.value).to_status_response
     end
   end
 
   get "/#{API_VER}/food/rank/high/:count"do
-    criteria = RankCriteria.new(true,params)
-    results = GetMostPopular.call(criteria)
+    criteria = RankCriteria.new(true,params[:count])
+    results = GetPopular.call(criteria)
 
     if results.success?
-      Food_RankRepresenter.new(results.value).to_json
+      Food_RanksRepresenter.call(results.value)
     else
       ErrorRepresenter.new(results.value).to_status_response
     end
