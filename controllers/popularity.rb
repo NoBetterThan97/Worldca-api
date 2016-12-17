@@ -24,4 +24,15 @@ class WorldCaAPI < Sinatra::Base
       ErrorRepresenter.new(results.value).to_status_response
     end
   end
+  
+  get "/#{API_VER}/worldcals"do
+    results = GetWorldCals.call
+
+    if results.success?
+      {
+      worldcals: results.value}.to_json
+    else
+      ErrorRepresenter.new(results.value).to_status_response
+    end
+  end
 end
