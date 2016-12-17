@@ -39,7 +39,7 @@ namespace :db do
 
   desc 'Import dictionary into db'
   task import: [:_setup] do
-    csv = CSV.parse File.read('db/food_index.csv').encode('UTF-8', invalid: :replace), headers: true
+    csv = CSV.parse File.read('db/import/food_index.csv').encode('UTF-8', invalid: :replace), headers: true
     csv.each do |line|
       record = Food.create(food_name: line['name'] )
     end
