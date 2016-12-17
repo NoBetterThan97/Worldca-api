@@ -20,6 +20,7 @@ end
 namespace :db do
   task :_setup do
     require 'sequel'
+    require 'csv'
     require_relative 'init'
     Sequel.extension :migration
   end
@@ -35,4 +36,13 @@ namespace :db do
     Sequel::Migrator.run(DB, 'db/migrations', target: 0)
     Sequel::Migrator.run(DB, 'db/migrations')
   end
+
+  desc 'Import dictionary into db'
+  task import: [:_setup] do
+    csv = CSV.parse File.read('db/food_index.csv').encode('UTF-8', invalid: :replace), headers: true
+    csv.each do |line|
+      record = Food.create(food_name: line['name'] )
+    end
+  end
+
 end

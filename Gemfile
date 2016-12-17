@@ -10,6 +10,7 @@ gem 'econfig'
 
 gem 'sequel'
 gem 'foodnutritionix'
+gem 'smarter_csv'
 
 gem 'roar'
 gem 'multi_json'
