@@ -19,6 +19,7 @@ gem 'dry-transaction'
 
 group :develop, :test do
   gem 'pry-byebug'
+  gem 'sqlite3'
 end
 
 group :test do
