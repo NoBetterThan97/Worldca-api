@@ -19,7 +19,6 @@ gem 'dry-transaction'
 
 group :develop, :test do
   gem 'pry-byebug'
-  gem 'sqlite3'
 end
 
 group :test do
@@ -35,7 +34,6 @@ end
 
 group :development do
   gem 'rerun'
-
   gem 'flog'
   gem 'flay'
 end
@@ -48,5 +46,3 @@ end
 group :production do
   gem 'pg'
 end
-
-gem 'byebug'
