@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-ruby '2.3.1'
+ruby '2.3.3'
 
 source 'https://rubygems.org'
 
@@ -17,7 +17,7 @@ gem 'dry-monads'
 gem 'dry-container'
 gem 'dry-transaction'
 
-group :develop, :test do
+group :development, :test do
   gem 'pry-byebug'
   gem 'sqlite3'
 end
