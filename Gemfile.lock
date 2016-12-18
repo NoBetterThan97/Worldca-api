@@ -116,6 +116,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug
   dry-container
   dry-monads
   dry-transaction
