@@ -9,7 +9,7 @@ Sequel.migration do
       String :text
       String :url
       String :image_url
-      Datetime :created_at
+      Timestamp :created_at
     end
   end
 end
