@@ -7,7 +7,7 @@ class GetPopular
   def self.call(criteria)
     popular = FindRankFoodQuery.call(criteria)
 
-    if (popular).nil?
+    if popular.nil?
       Left(Error.new(:not_found, 'Error in GetLessPopular'))
     else
       Right(Foods.new(popular))

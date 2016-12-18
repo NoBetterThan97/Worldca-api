@@ -6,7 +6,7 @@ class GetWorldCals
 
   def self.call
 
-    if (food=Food.all).nil?
+    if (food = Food.all).nil?
       Left(Error.new(:not_found, 'Error in GetWorldCals'))
     else
       total = 0
