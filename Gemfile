@@ -17,7 +17,9 @@ gem 'dry-monads'
 gem 'dry-container'
 gem 'dry-transaction'
 
-group :develop, :test do
+gem 'rake'
+
+group :development, :test do
   gem 'pry-byebug'
   gem 'sqlite3'
 end
@@ -27,7 +29,6 @@ group :test do
   gem 'minitest-rg'
 
   gem 'rack-test'
-  gem 'rake'
 
   gem 'vcr'
   gem 'webmock'
