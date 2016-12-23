@@ -11,7 +11,7 @@ class GetWorldCals
     else
       total = 0
       food.each{|a|
-      total = total + a.nf_calories.to_i * a.tag_amount}
+      total = total + a.calories.to_i * a.tag_amount}
       Right(total)
     end
   end
