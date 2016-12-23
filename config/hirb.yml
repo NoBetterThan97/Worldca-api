@@ -1,0 +1,10 @@
+  :output:
+    Food:
+      :options:
+        :fields:
+          - id
+          - food_name
+          - nf_calories
+          - nf_total_fat
+          - photo
+          - tag_amount

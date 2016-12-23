@@ -5,7 +5,7 @@ class Food_NutrixRepresenter < Roar::Decorator
   include Roar::JSON
 
   property :photo
-  property :name
+  property :food_name
   property :serving_qty
   property :serving_unit
   property :serving_weight_grams
@@ -19,5 +19,4 @@ class Food_NutrixRepresenter < Roar::Decorator
   property :nf_sugars
   property :nf_protein
   property :nf_potassium
-  property :tag_amount
 end
