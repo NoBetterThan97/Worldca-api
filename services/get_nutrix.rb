@@ -6,7 +6,7 @@ class GetNutrix
   def self.call(params)
     result = Food.first(id: params[:id])
 
-    if (result).nil?
+    if result.nil?
       Left(Error.new(:not_found, 'Error in GetNutrix'))
     else
       Right(result)

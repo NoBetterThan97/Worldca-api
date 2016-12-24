@@ -8,7 +8,7 @@ class WorldCaAPI < Sinatra::Base
     results = GetPopular.call(criteria)
 
     if results.success?
-      Food_RanksRepresenter.call(results.value)
+      FoodRanksRepresenter.new(results.value).to_json
     else
       ErrorRepresenter.new(results.value).to_status_response
     end
@@ -19,7 +19,18 @@ class WorldCaAPI < Sinatra::Base
     results = GetPopular.call(criteria)
 
     if results.success?
-      Food_RanksRepresenter.call(results.value)
+      FoodRanksRepresenter.new(results.value).to_json
+    else
+      ErrorRepresenter.new(results.value).to_status_response
+    end
+  end
+  
+  get "/#{API_VER}/worldcals"do
+    results = GetWorldCals.call
+
+    if results.success?
+      {
+      worldcals: results.value}.to_json
     else
       ErrorRepresenter.new(results.value).to_status_response
     end
