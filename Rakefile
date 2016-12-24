@@ -55,8 +55,6 @@ namespace :db do
       load_food = FoodNutritionix::Food.search(i)
 
   Food.find(food_name: i).update(
-	nf_calories: load_food.nf_calories,
-	nf_total_fat: load_food.nf_total_fat,
 	consumed_at: load_food.consumed_at,
 	serving_qty: load_food.serving_qty,
 	serving_unit: load_food.serving_unit,
