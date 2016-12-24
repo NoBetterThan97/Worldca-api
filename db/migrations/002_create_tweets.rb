@@ -3,10 +3,13 @@ require 'sequel'
 
 Sequel.migration do
   change do
-    create_table(:popularities) do
+    create_table(:tweets) do
       primary_key :id
-      foreign_key :food_id
-      Integer :tag_amount
+
+      String :text
+      String :url
+      String :image_url
+      Timestamp :created_at
     end
   end
 end
