@@ -3,7 +3,7 @@
 # GroupAPI web service
 class WorldCaAPI < Sinatra::Base
 
-  get "/#{API_VER}/food/nutrix/:id/?" do
+  get "/#{API_VER}/food/nutrix/:name/?" do
     results = GetNutrix.call(params)
 
     if results.success?
@@ -13,7 +13,7 @@ class WorldCaAPI < Sinatra::Base
     end
   end
 
-  post "/#{API_VER}/food/nutrix/:id/?" do
+  post "/#{API_VER}/food/nutrix/:name/?" do
     result = LoadFoodFromNutrix.call(request.body.read)
 
     if result.success?

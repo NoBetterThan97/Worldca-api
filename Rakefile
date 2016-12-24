@@ -25,7 +25,6 @@ end
 namespace :db do
   task :_setup do
     require 'sequel'
-    require 'csv'
     require 'foodnutritionix'
     require_relative 'init'
     Sequel.extension :migration
@@ -43,13 +42,7 @@ namespace :db do
     Sequel::Migrator.run(DB, 'db/migrations')
   end
 
-  desc 'Import dictionary into db'
-  task import: [:_setup] do
-    csv = CSV.parse File.read('db/import/food_index.csv').encode('UTF-8', invalid: :replace), headers: true
-    csv.each do |line|
-      record = Food.create(food_name: line['name'] )
-    end
-  end
+
 
   desc 'Import info from API'
   task getinfo: [:_setup] do
@@ -61,7 +54,7 @@ namespace :db do
     food_detail = food_obj.map do |i|
       load_food = FoodNutritionix::Food.search(i)
 
-      Food.find(food_name: i).update(
+  Food.find(food_name: i).update(
 	nf_calories: load_food.nf_calories,
 	nf_total_fat: load_food.nf_total_fat,
 	consumed_at: load_food.consumed_at,
