@@ -2,5 +2,5 @@
 
 # Represents a Food's stored information
 class Food < Sequel::Model
-  many_to_many :foods
+  many_to_many :posts
 end

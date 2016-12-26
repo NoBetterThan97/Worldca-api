@@ -1,0 +1,1 @@
+Statistics = Struct.new(:statistics)

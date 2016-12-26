@@ -3,24 +3,35 @@ ruby '2.3.3'
 
 source 'https://rubygems.org'
 
-gem 'sinatra'
-gem 'puma'
-gem 'json'
+gem 'concurrent-ruby'
+
+gem 'dry-container'
+gem 'dry-monads'
+gem 'dry-transaction'
+
 gem 'econfig'
 
-gem 'sequel'
 gem 'foodnutritionix'
 
-gem 'roar'
+gem 'json'
+
 gem 'multi_json'
-gem 'dry-monads'
-gem 'dry-container'
-gem 'dry-transaction'
+
+gem 'puma'
+
+gem 'rake'
+gem 'roar'
+
+gem 'sequel'
+gem 'sinatra'
+
+gem 'tweetstream'
 
 gem 'rake'
 
 group :development, :test do
   gem 'pry-byebug'
+
   gem 'sqlite3'
 end
 
@@ -31,19 +42,20 @@ group :test do
   gem 'rack-test'
 
   gem 'vcr'
+
   gem 'webmock'
 end
 
 group :development do
-  gem 'rerun'
-
-  gem 'flog'
   gem 'flay'
+  gem 'flog'
+
+  gem 'rerun'
 end
 
 group :development, :production do
-  gem 'tux'
   gem 'hirb'
+  gem 'tux'
 end
 
 group :production do
