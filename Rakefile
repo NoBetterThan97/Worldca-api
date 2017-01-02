@@ -6,6 +6,10 @@ task :default do
   puts `rake -T`
 end
 
+task :run do
+  sh 'rerun "rackup -p 9292"'
+end
+
 Rake::TestTask.new(:spec) do |t|
   t.pattern = 'spec/*_spec.rb'
   t.warning = false
@@ -18,8 +22,21 @@ task :wipe do
   end
 end
 
-task :run do
-  sh 'rerun "rackup -p 9292"'
+namespace :run do
+  task :dev do
+    sh 'rerun "rackup -p 9292"'
+  end
+
+  task :test do
+    loop do
+      puts 'Setting up test environment'
+      ENV['RACK_ENV'] = 'test'
+      Rake::Task['db:_setup'].execute
+      Rake::Task['db:reset'].execute
+      puts 'Populating test database'
+      sh 'rerun "rackup -p 9292"'
+    end
+  end
 end
 
 namespace :db do

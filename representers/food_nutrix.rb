@@ -19,4 +19,5 @@ class Food_NutrixRepresenter < Roar::Decorator
   property :protein
   property :potassium
   property :image_url
+  property :tag_amount
 end
