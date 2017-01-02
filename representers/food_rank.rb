@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 # Represents overall group information for JSON API output
-class Food_RankRepresenter < Roar::Decorator
+class FoodRankRepresenter < Roar::Decorator
   include Roar::JSON
 
-  property :photo
+  property :id
   property :name
+  property :image_url
   property :tag_amount
-  property :rank
 end

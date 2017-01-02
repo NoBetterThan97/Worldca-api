@@ -11,6 +11,7 @@ gem 'econfig'
 gem 'sequel'
 gem 'foodnutritionix'
 
+gem 'rake'
 gem 'roar'
 gem 'multi_json'
 gem 'dry-monads'
@@ -36,7 +37,6 @@ end
 
 group :development do
   gem 'rerun'
-
   gem 'flog'
   gem 'flay'
 end

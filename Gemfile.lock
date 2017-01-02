@@ -6,7 +6,7 @@ GEM
     bond (0.5.1)
     byebug (9.0.6)
     coderay (1.1.1)
-    concurrent-ruby (1.0.2)
+    concurrent-ruby (1.0.3)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     dry-configurable (0.4.0)
