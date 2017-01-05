@@ -4,34 +4,21 @@ ruby '2.3.1'
 source 'https://rubygems.org'
 
 gem 'concurrent-ruby'
-
 gem 'dry-container'
 gem 'dry-monads'
 gem 'dry-transaction'
-
 gem 'econfig'
-
 gem 'foodnutritionix'
-
 gem 'json'
-
 gem 'multi_json'
-
 gem 'puma'
-
 gem 'rake'
 gem 'roar'
-
 gem 'sequel'
 gem 'sinatra'
 
-gem 'tweetstream'
-
-gem 'rake'
-
 group :development, :test do
   gem 'pry-byebug'
-
   gem 'sqlite3'
 end
 
