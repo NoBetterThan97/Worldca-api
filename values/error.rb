@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Error
   attr_accessor :status, :message
 

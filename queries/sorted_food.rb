@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class SortedFoodQuery
   def self.call(limit: nil)
     Food.with_sql(query_statement(limit: limit))

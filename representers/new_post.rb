@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class NewPostRepresenter < Roar::Decorator
   include Roar::JSON
 

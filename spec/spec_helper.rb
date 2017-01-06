@@ -15,7 +15,7 @@ def app
   WorldCaAPI
 end
 
-CASSETTES_FOLDER = 'spec/support/cassettes'.freeze
+CASSETTES_FOLDER = 'spec/support/cassettes'
 
 VCR.configure do |config|
   config.cassette_library_dir = CASSETTES_FOLDER

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class WorldCaAPI < Sinatra::Base
   extend Econfig::Shortcut
 
@@ -22,7 +21,7 @@ class WorldCaAPI < Sinatra::Base
     { message: e.message }.to_json
   end
 
-  API_VER = 'api/v0.1'.freeze
+  API_VER = 'api/v0.1'
 
   get '/?' do
     {

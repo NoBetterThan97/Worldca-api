@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class PostRepresenter < Roar::Decorator
   include Roar::JSON
 

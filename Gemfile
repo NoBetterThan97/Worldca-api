@@ -36,8 +36,8 @@ end
 group :development do
   gem 'flay'
   gem 'flog'
-
   gem 'rerun'
+  gem 'rubocop'
 end
 
 group :development, :production do
