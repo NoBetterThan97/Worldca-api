@@ -1,4 +1,4 @@
-class FindFoodStatisticsService
+class FindStatisticsService
   def self.call(limit: nil)
     Statistics.new(
       SortedFoodQuery.call(limit: limit)

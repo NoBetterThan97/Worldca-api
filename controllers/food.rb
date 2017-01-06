@@ -1,10 +1,15 @@
 # frozen_string_literal: true
 class WorldCaAPI < Sinatra::Base
   get "/#{API_VER}/foods" do
-    StatisticsRepresenter.new(FindFoodStatisticsService.call(limit: params['limit'])).to_json
+    StatisticsRepresenter.new(FindStatisticsService.call(limit: params['limit'])).to_json
   end
 
   get "/#{API_VER}/foods/:name" do
-    FoodRepresenter.new(FindFoodService.call(name: params['name']).value).to_json
+    result = FindStatisticService.call(name: params['name'])
+    if result.success?
+      StatisticRepresenter.new(result.value).to_json
+    else
+      ErrorRepresenter.new(result.value).to_json
+    end
   end
 end

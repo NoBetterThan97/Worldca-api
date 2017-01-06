@@ -6,7 +6,7 @@ class FindFoodService
   def self.call(name:, create_if_missing: false)
     result = Food.find(name: name)
     result ||= create_food(name) if create_if_missing
-    result.nil? ? Left(Error.new('Food not found')) : Right(result)
+    result.nil? ? Left(Error.new(Error::Status::NOT_FOUND, 'Food not found')) : Right(result)
   end
 
   def self.create_food(food_name)

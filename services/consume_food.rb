@@ -24,7 +24,7 @@ class ConsumeFoodService
                                     .to_h
     if post_params[:text].nil? || post_params[:url].nil? || post_params[:created_at].nil? ||
        post_params[:image_url].nil? || post_params[:hashtags].nil?
-      Left(Error.new('Incorrect parameters'))
+      Left(Error.new(Error::Status::BAD_REQUEST, 'Incorrect parameters'))
     else
       Right(params.merge(post_params))
     end
@@ -39,7 +39,7 @@ class ConsumeFoodService
       params[:post] = post
       Right(params)
     else
-      Left(Error.new('Cannot save post'))
+      Left(Error.new(Error::Status::BAD_REQUEST, 'Cannot save post'))
     end
   end)
 

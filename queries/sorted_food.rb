@@ -4,7 +4,7 @@ class SortedFoodQuery
   end
 
   # sorts foods by number of associated posts
-  def self.query_statement
+  def self.query_statement(limit: nil)
     %{
       SELECT foods.*
       FROM foods
