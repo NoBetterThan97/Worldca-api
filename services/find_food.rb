@@ -11,29 +11,14 @@ class FindFoodService
   end
 
   def self.create_food(food_name)
-    food = FoodNutritionix::Food.search(food_name)
-    Food.create(create_food_params(food))
-  rescue
-    nil
+    foods = FoodNutritionix::Food.search(food_name)
+    return nil if foods.empty?
+    Food.create(create_food_params(foods.first))
   end
 
   def self.create_food_params(food)
-    {
-      name: food.food_name,
-      serving_quantity: food.serving_qty,
-      serving_unit: food.serving_unit,
-      serving_weight: food.serving_weight_grams,
-      calories: food.nf_calories,
-      fat: food.nf_total_fat,
-      saturated_fat: food.nf_saturated_fat,
-      cholesterol: food.nf_cholesterol,
-      sodium: food.nf_sodium,
-      carbohydrate: food.nf_total_carbohydrate,
-      dietary_fiber: food.nf_dietary_fiber,
-      sugars: food.nf_sugars,
-      protein: food.nf_protein,
-      potassium: food.nf_potassium,
-      image_url: food.photo['highres']
-    }
+    food.to_hash
+        .tap { |h| h.delete(:photo) }
+        .merge(image_url: food.photo['highres'])
   end
 end
