@@ -1,23 +1,21 @@
 # frozen_string_literal: true
-ruby '2.3.3'
+ruby '2.3.1'
 
 source 'https://rubygems.org'
 
-gem 'sinatra'
-gem 'puma'
-gem 'json'
-gem 'econfig'
-
-gem 'sequel'
-gem 'foodnutritionix'
-
-gem 'roar'
-gem 'multi_json'
-gem 'dry-monads'
+gem 'concurrent-ruby'
 gem 'dry-container'
+gem 'dry-monads'
 gem 'dry-transaction'
-
+gem 'econfig'
+gem 'foodnutritionix'
+gem 'json'
+gem 'multi_json'
+gem 'puma'
 gem 'rake'
+gem 'roar'
+gem 'sequel'
+gem 'sinatra'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -31,19 +29,20 @@ group :test do
   gem 'rack-test'
 
   gem 'vcr'
+
   gem 'webmock'
 end
 
 group :development do
-  gem 'rerun'
-
-  gem 'flog'
   gem 'flay'
+  gem 'flog'
+  gem 'rerun'
+  gem 'rubocop'
 end
 
 group :development, :production do
-  gem 'tux'
   gem 'hirb'
+  gem 'tux'
 end
 
 group :production do
