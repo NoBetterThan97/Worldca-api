@@ -46,10 +46,7 @@ class ConsumeFoodService
 
   register(:process_foods, lambda do |params|
     post = params[:post]
-    promises = params[:hashtags].map do |tag|
-      Concurrent::Promise.execute { FindFoodService.call(name: tag, create_if_missing: true) }
-    end
-    promises.each { |result| post.add_food(result.value.value) if result.value.success? }
+    FindFoodsService.call(names: params[:hashtags]).each { |food| post.add_food(food) }
     Right(post)
   end)
 
