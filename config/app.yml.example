@@ -7,7 +7,7 @@ development:
   AWS_SECRET_ACCESS_KEY: '<secret here>'
   CONSUME_FOOD_QUEUE: '<queue_name>'
   CLEAR_POSTS_QUEUE: '<queue_name>'
-  WS_SERVER_URL: 'http://localhost:5000/ws'
+  WS_SERVER_URL: '<websocket server url>'
 
 test:
   FOOD_APP_ID: '<secret here>'
