@@ -3,6 +3,7 @@ ruby '2.3.1'
 
 source 'https://rubygems.org'
 
+gem 'aws-sdk'
 gem 'concurrent-ruby'
 gem 'dry-container'
 gem 'dry-monads'
@@ -15,6 +16,7 @@ gem 'puma'
 gem 'rake'
 gem 'roar'
 gem 'sequel'
+gem 'shoryuken'
 gem 'sinatra'
 
 group :development, :test do

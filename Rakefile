@@ -36,3 +36,25 @@ namespace :db do
     Sequel::Migrator.run(DB, 'db/migrations')
   end
 end
+
+namespace :queue do
+  require 'aws-sdk'
+  require_relative 'init'
+
+  desc 'Create SQS queue for Shoryuken'
+  task :create do
+    config = WorldCaAPI.config
+    sqs = Aws::SQS::Client.new(
+      access_key_id: config.AWS_ACCESS_KEY_ID,
+      secret_access_key: config.AWS_SECRET_ACCESS_KEY,
+      region: config.AWS_REGION
+    )
+    begin
+      sqs.create_queue(queue_name: config.CONSUME_FOOD_QUEUE)
+      sqs.create_queue(queue_name: config.CLEAR_POSTS_QUEUE)
+      puts 'Queues created'
+    rescue => e
+      puts "Error creating queues: #{e}"
+    end
+  end
+end

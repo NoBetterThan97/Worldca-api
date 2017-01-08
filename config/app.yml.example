@@ -2,7 +2,17 @@
 development:
   FOOD_APP_ID: '<secret here>'
   FOOD_APP_SECRET: '<secret here>'
+  AWS_REGION: '<region here>'
+  AWS_ACCESS_KEY_ID: '<secret here>'
+  AWS_SECRET_ACCESS_KEY: '<secret here>'
+  CONSUME_FOOD_QUEUE: '<queue_name>'
+  CLEAR_POSTS_QUEUE: '<queue_name>'
 
 test:
   FOOD_APP_ID: '<secret here>'
   FOOD_APP_SECRET: '<secret here>'
+  AWS_REGION: '<region here>'
+  AWS_ACCESS_KEY_ID: '<secret here>'
+  AWS_SECRET_ACCESS_KEY: '<secret here>'
+  CONSUME_FOOD_QUEUE: '<queue_name>'
+  CLEAR_POSTS_QUEUE: '<queue_name>'
