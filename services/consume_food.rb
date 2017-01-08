@@ -14,7 +14,7 @@ class ConsumeFoodService
 
     Dry.Transaction(container: self) do
       step :validate_payload
-      step :save_post
+      step :create_post
       step :process_foods
       step :delete_post_if_necessary
     end.call(params)
@@ -32,7 +32,7 @@ class ConsumeFoodService
     end
   end)
 
-  register(:save_post, lambda do |params|
+  register(:create_post, lambda do |params|
     post = Post.new(
       [:text, :url, :image_url, :created_at].map { |key| [key, params[key]] }.to_h
     )

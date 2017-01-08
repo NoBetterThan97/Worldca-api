@@ -9,6 +9,7 @@ class FindFoodsService
   end
 
   def self.create_foods(names:)
+    return {} if names.empty?
     FoodNutritionix::Food.search(names)&.map do |food|
       [food.name, Food.create(create_food_params(food))]
     end.to_h || {}
