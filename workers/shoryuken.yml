@@ -1,0 +1,3 @@
+queues:
+  - [worldca_consume_food, 2]
+  - [worldca_clear_posts, 1]
