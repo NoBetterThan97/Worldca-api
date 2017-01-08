@@ -4,6 +4,7 @@ require 'concurrent'
 class ConsumeFoodService
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
+  extend WebsocketChannelPublication
 
   def self.call(request_payload, websocket_server_url: nil)
     params = {
@@ -46,7 +47,10 @@ class ConsumeFoodService
 
   register(:process_foods, lambda do |params|
     post = params[:post]
-    FindFoodsService.call(names: params[:hashtags]).each { |food| post.add_food(food) }
+    FindFoodsService.call(names: params[:hashtags]).each do |food|
+      post.add_food(food)
+      publish_consumed_event(food, post)
+    end
     Right(post)
   end)
 
@@ -54,4 +58,15 @@ class ConsumeFoodService
     post.destroy if post.foods.count.zero?
     Right('Processed!')
   end)
+
+  def self.publish_consumed_event(food, post)
+    publish(
+      channel: food.name,
+      data: PostRepresenter.new(post).to_json
+    )
+    publish(
+      channel: 'overview',
+      data: food.calories
+    )
+  end
 end
