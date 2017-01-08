@@ -4,4 +4,9 @@ class WorldCaAPI < Sinatra::Base
     ConsumeFoodService.call(request.body.read)
     status 202
   end
+
+  delete "/#{API_VER}/posts" do
+    ClearPostsService.call
+    status 202
+  end
 end
