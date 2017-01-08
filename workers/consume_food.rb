@@ -8,8 +8,10 @@ class ConsumeFoodJob
   include Shoryuken::Worker
   shoryuken_options queue: BackgroundWorker.config.CONSUME_FOOD_QUEUE, auto_delete: true
 
+  include Base64Serialization
+
   def perform(_sqs_msg, body)
-    ConsumeFoodService.call(body)
+    ConsumeFoodService.call(base64_decode(body))
   rescue => e
     puts "Error consuming food: #{e}"
   end

@@ -2,7 +2,7 @@
 require 'econfig'
 require 'shoryuken'
 
-folders = 'values,config,models,representers,queries,services'
+folders = 'lib,values,config,models,representers,queries,services'
 Dir.glob("./{#{folders}}/init.rb").each do |file|
   require file
 end
