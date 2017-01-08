@@ -12,7 +12,7 @@ class SortedFoodQuery
       INNER JOIN foods_posts
       ON (foods_posts.food_id = foods.id)
       GROUP BY foods.id
-      ORDER BY COUNT(foods_posts.post_id) DESC
+      ORDER BY COUNT(foods_posts.post_id) * foods.calories::float DESC
     } + (limit ? "LIMIT #{limit}" : '')
   end
 end
