@@ -5,5 +5,7 @@ class ConsumeFoodJob
 
   def perform(_sqs_msg, body)
     ConsumeFoodService.call(body)
+  rescue
+    puts "Error consuming food: #{body}"
   end
 end
